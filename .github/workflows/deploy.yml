@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -33,3 +36,15 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages
+
+      - name: Ensure Pages site is configured
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.pages.createPagesSiteForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              source: { branch: 'gh-pages', path: '/' }
+            })
