@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/vue-twitch/',
+  base: '/vue-twitch/',//base: '/vue-twitch/', // 設定 base 路徑
   plugins: [
     vue(),
     vueDevTools(),
