@@ -34,13 +34,15 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAGES_PAT }}
           publish_dir: ./dist
           publish_branch: gh-pages
 
       - name: Ensure Pages site is configured
         if: success()
         uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAGES_PAT }}
         with:
           script: |
             await github.request('POST /repos/{owner}/{repo}/pages', {
