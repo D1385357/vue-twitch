@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <h1>這裡是背景頁面</h1>
+    <h1>背景</h1>
   </div>
 </template>
 
