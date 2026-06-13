@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <h1>這裡是背景頁面（例如 Twitch）</h1>
+    <h1>這裡是背景頁面</h1>
   </div>
 </template>
 
